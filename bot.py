@@ -54,11 +54,11 @@ async def handle_message(message: types.Message):
     except Exception as e:
         logging.error(f"Ошибка при обработке сообщения: {e}")
         
-@dp.errors_handler()
+@router.errors_handler()
 async def errors_handler(update: types.Update, exception: Exception):
     logging.error(f"Произошла ошибка: {exception}")
     return True
-
+    
 if __name__ == '__main__':
     from database import create_table
     create_table()
